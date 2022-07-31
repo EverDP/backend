@@ -1,0 +1,21 @@
+COMANDO PARA LIBERAR PUERTO OCUPADO:
+
+Con el siguiente comando voy a ver todos los puertos en uso:
+netstat -a
+
+El siguiente comando me va a mostrar datos del puerto que quiero eliminar, uno de esos datos me va servir en en próximo paso
+netstat -ao | find "8080"
+
+De los datos que recibí del puerto, copio el último de la fila, en este ejemplo fué 9004
+taskkill /F /PID 9004
+
+Si quiero comprobar que quedó libre el puerto, vuelvo a escribir el anteúltimo comando y no tiene que mostrarme ningún dato,
+ porque el puerto está libre
+netstat -ao | find "8080"
+
+
+
+
+
+
+

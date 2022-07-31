@@ -8,7 +8,9 @@ import java.util.List;
 public interface iportfolioservice {
     
 /*-----------METODO PARA LA SECCION "PROYECTOS REALIZADOS"---------*/
+    
+    public void AgregarProyecto(proyectos proy);
+
     public List<proyectos> VerProyectos();
-    public void AgregarProyecto();
     
 }

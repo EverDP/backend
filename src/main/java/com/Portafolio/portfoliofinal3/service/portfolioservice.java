@@ -3,24 +3,36 @@
 package com.Portafolio.portfoliofinal3.service;
 
 import com.Portafolio.portfoliofinal3.model.proyectos;
+import com.Portafolio.portfoliofinal3.repository.portfoliorepository;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class portfolioservice implements iportfolioservice{
+    
+    @Autowired
+    public portfoliorepository PortfolioRepo;
+    
+    
+    
+    
 
-/*-----------METODO PARA LA SECCION "PROYECTOS REALIZADOS"---------*/
+/*-----------METODOS PARA LA SECCION "PROYECTOS REALIZADOS"---------*/
     
         @Override
-    public void AgregarProyecto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void AgregarProyecto( proyectos proy) {
+        
+        PortfolioRepo.save(proy);
+        
     }
     
     
     @Override
     public List<proyectos> VerProyectos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        return PortfolioRepo.findAll();
     }
 
 

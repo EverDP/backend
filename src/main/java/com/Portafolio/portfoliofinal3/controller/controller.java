@@ -2,8 +2,10 @@
 package com.Portafolio.portfoliofinal3.controller;
 
 import com.Portafolio.portfoliofinal3.model.proyectos;
+import com.Portafolio.portfoliofinal3.service.iportfolioservice;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,15 +15,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class controller {
     
-    
-    List<proyectos> ListProyectos= new ArrayList();
+    @Autowired
+    private iportfolioservice      PortfolioServ;
+    /*List<proyectos> ListProyectos= new ArrayList();*/
            
 /*-----------METODO PARA LA SECCION "PROYECTOS REALIZADOS"---------*/
     
     @PostMapping("/agregarproyectos")
     public void AgregarProyecto(@RequestBody proyectos proy){
         
-        ListProyectos.add(proy);
+        /*ListProyectos.add(proy);*/
+        PortfolioServ.AgregarProyecto(proy);
     }
     
     
@@ -29,7 +33,9 @@ public class controller {
     @GetMapping("/verproyectos")
     @ResponseBody
     public List<proyectos>VerProyecctos(){
-        return ListProyectos;
+        /*return ListProyectos;*/
+        return PortfolioServ.VerProyectos();
+        
         
         
         
